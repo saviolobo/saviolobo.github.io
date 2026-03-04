@@ -61,7 +61,6 @@ img{max-width:100%;display:block}
 .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1.5px;background:var(--accent);transition:width .3s cubic-bezier(.22,1,.36,1)}
 .nav-links a:hover,.nav-links a.active{color:var(--text-primary)}
 .nav-links a:hover::after,.nav-links a.active::after{width:100%}
-.nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;z-index:1001}
 .nav-toggle span{width:22px;height:1.5px;background:var(--text-primary);transition:all .3s}
 .nav-toggle.active span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
 .nav-toggle.active span:nth-child(2){opacity:0}
@@ -202,9 +201,28 @@ section{padding:6rem 2rem}
   .section-title{font-size:1.6rem}
   .nav{padding:0 1.2rem}
 }
+
+/* Skip link */
+.skip-link{position:fixed;top:-100%;left:1rem;z-index:9999;padding:.55rem 1.1rem;background:var(--accent);color:var(--bg-primary);font-weight:700;font-size:.85rem;border-radius:4px;transition:top .2s}
+.skip-link:focus{top:1rem;outline:2px solid var(--bg-primary);outline-offset:2px}
+
+/* Focus visible */
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
+
+/* Nav toggle as button */
+.nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;z-index:1001;background:none;border:none}
+
+/* Reduced motion */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition-duration:.01ms !important;animation-duration:.01ms !important;animation-iteration-count:1 !important}
+  .reveal{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
 </style>
 </head>
 <body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
 
 <!-- Navigation -->
 <nav class="nav" id="nav">
@@ -218,9 +236,9 @@ section{padding:6rem 2rem}
     <a href="#writing">Writing</a>
     <a href="#contact">Contact</a>
   </div>
-  <div class="nav-toggle" id="navToggle" aria-label="Menu">
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mobileMenu">
     <span></span><span></span><span></span>
-  </div>
+  </button>
 </nav>
 
 <!-- Mobile Menu -->
@@ -235,6 +253,7 @@ section{padding:6rem 2rem}
   <a href="#contact">Contact</a>
 </div>
 
+<main id="main-content">
 <!-- Hero -->
 <section class="hero" id="hero">
   <div class="hero-inner">
@@ -414,6 +433,8 @@ section{padding:6rem 2rem}
   </div>
 </section>
 
+</main>
+
 <!-- Contact / Footer -->
 <footer class="footer" id="contact">
   <div class="section-label reveal" style="justify-content:center">Contact</div>
@@ -447,6 +468,7 @@ section{padding:6rem 2rem}
   const overlay = document.getElementById('mobileOverlay');
   const closeMenu = () => {
     toggle.classList.remove('active');
+    toggle.setAttribute('aria-expanded', 'false');
     menu.classList.remove('open');
     overlay.classList.remove('open');
     document.body.style.overflow = '';
@@ -457,6 +479,7 @@ section{padding:6rem 2rem}
       closeMenu();
     } else {
       toggle.classList.add('active');
+      toggle.setAttribute('aria-expanded', 'true');
       menu.classList.add('open');
       overlay.classList.add('open');
       document.body.style.overflow = 'hidden';
