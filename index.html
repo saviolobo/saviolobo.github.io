@@ -211,7 +211,13 @@ section{padding:6rem 2rem}
 a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
 
 /* Nav toggle as button */
-.nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;z-index:1001;background:none;border:none}
+.nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:10px;z-index:1001;background:none;border:none;min-width:44px;min-height:44px;align-items:center;justify-content:center}
+
+/* Suppress tap highlight on mobile */
+a,button{-webkit-tap-highlight-color:transparent}
+
+/* Prevent scroll-through on mobile overlay */
+.mobile-overlay{touch-action:none}
 
 /* Reduced motion */
 @media(prefers-reduced-motion:reduce){
