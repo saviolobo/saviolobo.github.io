@@ -75,11 +75,11 @@ img{max-width:100%;display:block}
 .mobile-overlay.open{opacity:1;pointer-events:all}
 
 /* Section base */
-section{padding:6rem 2rem}
+section{padding:4rem 2rem}
 .section-inner{max-width:880px;margin:0 auto}
 .section-label{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;display:flex;align-items:center;gap:.6rem}
 .section-label::before{content:'';width:24px;height:1px;background:var(--accent)}
-.section-title{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;letter-spacing:-0.03em;line-height:1.15;margin-bottom:2.5rem}
+.section-title{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;letter-spacing:-0.03em;line-height:1.15;margin-bottom:1.5rem}
 
 /* Reveal animation */
 .reveal{opacity:0;transform:translateY(30px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
@@ -90,9 +90,9 @@ section{padding:6rem 2rem}
 .reveal-delay-4{transition-delay:.4s}
 
 /* Hero */
-.hero{min-height:100vh;display:flex;align-items:center;padding-top:var(--nav-height);position:relative}
+.hero{display:flex;align-items:center;padding-top:calc(var(--nav-height) + 3rem);padding-bottom:3rem;padding-left:2rem;padding-right:2rem;position:relative}
 .hero::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,var(--accent-glow) 0%,transparent 70%);pointer-events:none;opacity:.3}
-.hero-inner{max-width:880px;margin:0 auto;width:100%;display:flex;align-items:center;gap:4rem}
+.hero-inner{max-width:880px;margin:0 auto;width:100%;display:flex;align-items:center;gap:3rem}
 .hero-photo{flex-shrink:0}
 .hero-photo img{width:220px;height:220px;border-radius:50%;object-fit:cover;object-position:center center;border:2px solid var(--border-light);filter:grayscale(20%);transition:filter .5s,border-color .5s}
 .hero-photo img:hover{filter:grayscale(0%);border-color:var(--accent)}
@@ -100,11 +100,15 @@ section{padding:6rem 2rem}
 .hero-name{font-size:clamp(2.2rem,5vw,3.4rem);font-weight:700;letter-spacing:-0.04em;line-height:1.1;margin-bottom:.5rem}
 .hero-title{font-size:clamp(.95rem,2vw,1.15rem);color:var(--text-secondary);font-weight:400;margin-bottom:1rem;line-height:1.5}
 .hero-title strong{color:var(--accent);font-weight:600}
+.cursor{display:inline-block;color:var(--accent);animation:blink .7s step-end infinite;margin-left:1px}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
 .hero-bio{font-size:.92rem;color:var(--text-muted);line-height:1.7;max-width:520px;margin-bottom:1.8rem}
 .hero-links{display:flex;gap:1rem;align-items:center}
-.hero-links a{display:flex;align-items:center;justify-content:center;width:42px;height:42px;border:1px solid var(--border-light);border-radius:50%;color:var(--text-secondary);transition:all .3s}
+.hero-links a{display:flex;align-items:center;justify-content:center;width:42px;height:42px;border:1px solid var(--border-light);border-radius:50%;color:var(--text-secondary);transition:all .3s;position:relative}
 .hero-links a:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-dim)}
 .hero-links a svg{width:18px;height:18px}
+.hero-links a::after{content:attr(data-tooltip);position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);background:var(--bg-card);border:1px solid var(--border-light);color:var(--text-secondary);font-size:.72rem;white-space:nowrap;padding:.3rem .7rem;border-radius:6px;opacity:0;pointer-events:none;transition:opacity .2s}
+.hero-links a:hover::after{opacity:1}
 
 /* About */
 .about-text{font-size:1.05rem;line-height:1.85;color:var(--text-secondary);max-width:700px}
@@ -136,6 +140,14 @@ section{padding:6rem 2rem}
 .edu-school{font-size:1.05rem;font-weight:700;letter-spacing:-0.02em;color:var(--text-primary);margin-bottom:.15rem}
 .edu-degree{font-size:.9rem;color:var(--text-secondary);margin-bottom:.2rem}
 .edu-activities{font-size:.8rem;color:var(--text-muted);font-family:var(--font-mono);letter-spacing:.02em}
+
+/* About */
+.about-text{font-size:1.05rem;line-height:1.85;color:var(--text-secondary);max-width:700px;margin-bottom:1.5rem}
+.about-text strong{color:var(--text-primary);font-weight:600}
+.connect-link{display:inline-block;font-size:.9rem;font-weight:500;color:var(--accent);border:1px solid var(--accent);border-radius:100px;padding:.45rem 1.2rem;transition:all .3s;text-decoration:none}
+.connect-link:hover{background:var(--accent-dim)}
+.skills-grid{display:flex;flex-wrap:wrap;gap:.5rem}
+.skill-tag{font-family:var(--font-mono);font-size:.75rem;padding:.35rem .8rem;border:1px solid var(--border-light);border-radius:100px;color:var(--text-secondary);letter-spacing:.03em}
 
 /* Project card */
 .projects-grid{display:flex;flex-direction:column;gap:2rem;margin-top:.5rem}
@@ -236,8 +248,6 @@ a,button{-webkit-tap-highlight-color:transparent}
   <a href="#" class="nav-logo">savio<span>.</span></a>
   <div class="nav-links">
     <a href="#about">About</a>
-    <a href="#experience">Experience</a>
-    <a href="#education">Education</a>
     <a href="#projects">Projects</a>
     <a href="#publications">Publications</a>
     <a href="#writing">Writing</a>
@@ -252,8 +262,6 @@ a,button{-webkit-tap-highlight-color:transparent}
 <div class="mobile-overlay" id="mobileOverlay"></div>
 <div class="mobile-menu" id="mobileMenu">
   <a href="#about">About</a>
-  <a href="#experience">Experience</a>
-  <a href="#education">Education</a>
   <a href="#projects">Projects</a>
   <a href="#publications">Publications</a>
   <a href="#writing">Writing</a>
@@ -269,13 +277,12 @@ a,button{-webkit-tap-highlight-color:transparent}
     </div>
     <div class="hero-content">
       <h1 class="hero-name reveal reveal-delay-1">Savio Lobo</h1>
-      <p class="hero-title reveal reveal-delay-2">Assistant Manager - AI Engineer at <strong>Godrej AI Lab</strong></p>
-      <p class="hero-bio reveal reveal-delay-3">I build production-ready, scalable Agentic AI systems using RAG, AI Agents, and LLMs. I work at the intersection of engineering, research, and real-world deployment.</p>
+      <p class="hero-title reveal reveal-delay-2"><span id="typewriter"></span><span class="cursor">|</span></p>
       <div class="hero-links reveal reveal-delay-4">
-        <a href="https://github.com/saviolobo" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+        <a href="https://github.com/saviolobo" target="_blank" rel="noopener noreferrer" aria-label="GitHub" data-tooltip="Check out my work">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
         </a>
-        <a href="https://www.linkedin.com/in/savio-lobo/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <a href="https://www.linkedin.com/in/savio-lobo/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" data-tooltip="Connect with me here">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
         </a>
       </div>
@@ -286,63 +293,9 @@ a,button{-webkit-tap-highlight-color:transparent}
 <!-- About -->
 <section id="about">
   <div class="section-inner">
-    <div class="section-label reveal">About</div>
-    <h2 class="section-title reveal">Building AI that<br>ships to production</h2>
-    <p class="about-text reveal">
-      I'm an <strong>AI Engineer</strong> with 2.5+ years of experience building production AI systems. I specialize in RAG architectures, multi-agent systems, and LLM pipelines deployed on Azure. I'm passionate about turning research into real-world AI products.
-    </p>
-  </div>
-</section>
-
-<!-- Experience -->
-<section id="experience">
-  <div class="section-inner">
-    <div class="section-label reveal">Experience</div>
-    <h2 class="section-title reveal">Where I've worked</h2>
-    <div class="timeline">
-      <!-- Godrej -->
-      <div class="timeline-block reveal">
-        <div class="timeline-company">Godrej Industries Group</div>
-        <div class="timeline-type">Full-time &middot; Mumbai, India</div>
-        <div class="timeline-role">Assistant Manager - AI Engineer</div>
-        <div class="timeline-meta">Oct 2025 - Present</div>
-        <div class="timeline-dept">Godrej AI Lab</div>
-      </div>
-      <!-- Mercedes-Benz -->
-      <div class="timeline-block reveal">
-        <div class="timeline-company">Mercedes-Benz Research and Development India</div>
-        <div class="timeline-type">Full-time &middot; Bangalore, India</div>
-        <div class="timeline-subroles">
-          <div class="timeline-subrole">
-            <div class="timeline-role">Engineer</div>
-            <div class="timeline-meta">Aug 2024 - Oct 2025</div>
-          </div>
-          <div class="timeline-subrole">
-            <div class="timeline-role">Post Graduate Engineer Trainee (PGET)</div>
-            <div class="timeline-meta">Aug 2023 - Jul 2024</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Education -->
-<section id="education">
-  <div class="section-inner">
-    <div class="section-label reveal">Education</div>
-    <h2 class="section-title reveal">Academic background</h2>
-    <div class="timeline">
-      <div class="edu-entry reveal">
-        <div class="edu-school">National Institute of Technology Karnataka</div>
-        <div class="edu-degree">Master of Technology (M.Tech), Information Technology</div>
-      </div>
-      <div class="edu-entry reveal">
-        <div class="edu-school">Don Bosco Institute of Technology (D.B.I.T), University of Mumbai</div>
-        <div class="edu-degree">Bachelor of Engineering (B.E.), Information Technology</div>
-        <div class="edu-activities">Technical Head, AI Club &middot; NSS Volunteer</div>
-      </div>
-    </div>
+    <div class="section-label reveal">About Me</div>
+    <p class="about-text reveal">👋 Hello! I'm Savio, an AI Engineer shipping production-grade multi-agent and RAG systems at <strong>Godrej AI Lab</strong>, previously at <strong>Mercedes-Benz R&D</strong>, MTech in IT from <strong>NITK</strong>, with hands-on expertise in enterprise-scale agentic AI systems and strong observability.</p>
+    <a href="https://www.linkedin.com/in/savio-lobo/" class="connect-link reveal" target="_blank" rel="noopener noreferrer">Happy to Connect 🤝</a>
   </div>
 </section>
 
@@ -352,6 +305,24 @@ a,button{-webkit-tap-highlight-color:transparent}
     <div class="section-label reveal">Projects</div>
     <h2 class="section-title reveal">Featured work</h2>
     <div class="projects-grid">
+    <div class="project-card reveal">
+      <img class="project-demo" src="assets/architecture.png" alt="Agentic Annotator Architecture" loading="lazy">
+      <div class="project-body">
+        <div class="project-name">
+          <a href="https://github.com/saviolobo/agentic-annotator" target="_blank" rel="noopener noreferrer">Multi-Agent Banking Annotation System</a>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </div>
+        <p class="project-desc">Production-grade multi-agent pipeline for automated intent classification on the Banking77 benchmark (13,083 queries, 77 intents). Achieves 95.8% agreement rate, outperforming JP Morgan's MAFA system (AAAI 2026) at 86%.</p>
+        <div class="project-tags">
+          <span class="project-tag">Python</span>
+          <span class="project-tag">LangGraph</span>
+          <span class="project-tag">FastMCP</span>
+          <span class="project-tag">Redis</span>
+          <span class="project-tag">Groq</span>
+          <span class="project-tag">Cerebras</span>
+        </div>
+      </div>
+    </div>
     <div class="project-card reveal">
       <img class="project-demo" src="assets/demo.gif" alt="Semantic LLM Cache Demo" loading="lazy">
       <div class="project-body">
@@ -369,24 +340,24 @@ a,button{-webkit-tap-highlight-color:transparent}
         </div>
       </div>
     </div>
-    <div class="project-card reveal">
-      <img class="project-demo" src="assets/architecture.png" alt="Agentic Annotator Architecture" loading="lazy">
-      <div class="project-body">
-        <div class="project-name">
-          <a href="https://github.com/saviolobo/agentic-annotator" target="_blank" rel="noopener noreferrer">Agentic Annotator</a>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-        </div>
-        <p class="project-desc">Production-grade multi-agent pipeline for automated intent classification on the Banking77 benchmark (13,083 queries, 77 intents). Achieves 95.8% agreement rate, outperforming JP Morgan's MAFA system (AAAI 2026) at 86%.</p>
-        <div class="project-tags">
-          <span class="project-tag">Python</span>
-          <span class="project-tag">LangGraph</span>
-          <span class="project-tag">FastMCP</span>
-          <span class="project-tag">Redis</span>
-          <span class="project-tag">Groq</span>
-          <span class="project-tag">Cerebras</span>
-        </div>
-      </div>
     </div>
+  </div>
+</section>
+
+<!-- Skills -->
+<section id="skills">
+  <div class="section-inner">
+    <div class="section-label reveal">Skills</div>
+    <div class="skills-grid reveal">
+      <span class="skill-tag">AI Agents</span>
+      <span class="skill-tag">RAG</span>
+      <span class="skill-tag">LLMs</span>
+      <span class="skill-tag">LangGraph</span>
+      <span class="skill-tag">LangChain</span>
+      <span class="skill-tag">Langfuse</span>
+      <span class="skill-tag">Claude Code</span>
+      <span class="skill-tag">Azure OpenAI</span>
+      <span class="skill-tag">Python</span>
     </div>
   </div>
 </section>
@@ -586,6 +557,27 @@ a,button{-webkit-tap-highlight-color:transparent}
   };
   window.addEventListener('scroll', updateSpy, { passive: true });
   updateSpy();
+})();
+
+// Typewriter
+(function(){
+  const el = document.getElementById('typewriter');
+  if (!el) return;
+  const phrases = ['AI Engineer', 'I ship multi-agent and RAG systems', 'I build Agentic AI with strong observability'];
+  let pi = 0, ci = 0, deleting = false;
+  const speed = { type: 60, delete: 35, pause: 2000 };
+  function tick() {
+    const phrase = phrases[pi];
+    if (!deleting) {
+      el.textContent = phrase.slice(0, ++ci);
+      if (ci === phrase.length) { deleting = true; setTimeout(tick, speed.pause); return; }
+    } else {
+      el.textContent = phrase.slice(0, --ci);
+      if (ci === 0) { deleting = false; pi = (pi + 1) % phrases.length; }
+    }
+    setTimeout(tick, deleting ? speed.delete : speed.type);
+  }
+  tick();
 })();
 </script>
 </body>
