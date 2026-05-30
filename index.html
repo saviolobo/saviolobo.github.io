@@ -138,6 +138,7 @@ section{padding:6rem 2rem}
 .edu-activities{font-size:.8rem;color:var(--text-muted);font-family:var(--font-mono);letter-spacing:.02em}
 
 /* Project card */
+.projects-grid{display:flex;flex-direction:column;gap:2rem;margin-top:.5rem}
 .project-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:all .4s cubic-bezier(.22,1,.36,1)}
 .project-card:hover{border-color:var(--border-light);transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,0.4)}
 .project-demo{width:100%;border-bottom:1px solid var(--border);background:var(--bg-secondary)}
@@ -350,6 +351,7 @@ a,button{-webkit-tap-highlight-color:transparent}
   <div class="section-inner">
     <div class="section-label reveal">Projects</div>
     <h2 class="section-title reveal">Featured work</h2>
+    <div class="projects-grid">
     <div class="project-card reveal">
       <img class="project-demo" src="demo.gif" alt="Semantic LLM Cache Demo" loading="lazy">
       <div class="project-body">
@@ -366,6 +368,25 @@ a,button{-webkit-tap-highlight-color:transparent}
           <span class="project-tag">Streamlit</span>
         </div>
       </div>
+    </div>
+    <div class="project-card reveal">
+      <img class="project-demo" src="architecture.png" alt="Agentic Annotator Architecture" loading="lazy">
+      <div class="project-body">
+        <div class="project-name">
+          <a href="https://github.com/saviolobo/agentic-annotator" target="_blank" rel="noopener noreferrer">Agentic Annotator</a>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </div>
+        <p class="project-desc">Production-grade multi-agent pipeline for automated intent classification on the Banking77 benchmark (13,083 queries, 77 intents). Achieves 95.8% agreement rate, outperforming JP Morgan's MAFA system (AAAI 2026) at 86%.</p>
+        <div class="project-tags">
+          <span class="project-tag">Python</span>
+          <span class="project-tag">LangGraph</span>
+          <span class="project-tag">FastMCP</span>
+          <span class="project-tag">Redis</span>
+          <span class="project-tag">Groq</span>
+          <span class="project-tag">Cerebras</span>
+        </div>
+      </div>
+    </div>
     </div>
   </div>
 </section>
@@ -395,6 +416,14 @@ a,button{-webkit-tap-highlight-color:transparent}
     <div class="section-label reveal">Writing</div>
     <h2 class="section-title reveal">I Write About AI</h2>
     <div class="writing-grid">
+      <a class="writing-card reveal" href="https://www.linkedin.com/posts/savio-lobo_imagine-creating-a-model-so-powerful-that-share-7447377811272531968-WW4M/?utm_source=share&utm_medium=member_desktop&rcm=ACoAADDXiUsB_rxVRcB3f7ugnKj1wazI4WHIZUc" target="_blank" rel="noopener noreferrer">
+        <div class="writing-card-title">
+          <span>Project Glasswing: A Model Too Powerful to Release</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </div>
+        <div class="writing-card-summary">Anthropic's Mythos has already found high-severity vulnerabilities in major browsers and OSes.</div>
+        <div class="writing-card-cta">Read on LinkedIn &rarr;</div>
+      </a>
       <a class="writing-card reveal" href="https://www.linkedin.com/posts/savio-lobo_claudecode-ai-agenticai-activity-7441680135512092672-v9Cu" target="_blank" rel="noopener noreferrer">
         <div class="writing-card-title">
           <span>Voice Coding with Claude Code</span>
