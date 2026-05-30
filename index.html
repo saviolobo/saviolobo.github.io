@@ -162,9 +162,10 @@ section{padding:4rem 2rem}
 .project-card:hover .project-tag{border-color:var(--accent);color:var(--accent);background:var(--accent-dim)}
 
 /* Publications */
-.pub-item{padding:1.5rem 0;border-bottom:1px solid var(--border)}
-.pub-item:last-child{border-bottom:none}
-.pub-type{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:.4rem}
+.pub-grid{display:flex;flex-direction:column;gap:1.2rem}
+.pub-item{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:1.5rem 1.8rem;transition:all .4s cubic-bezier(.22,1,.36,1)}
+.pub-item:hover{border-color:var(--border-light);transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,0.4)}
+.pub-type{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:.5rem}
 .pub-title{font-size:1rem;font-weight:600;letter-spacing:-0.01em;margin-bottom:.3rem;color:var(--text-primary)}
 .pub-title a{transition:color .3s}
 .pub-title a:hover{color:var(--accent)}
@@ -363,20 +364,22 @@ a,button{-webkit-tap-highlight-color:transparent}
   <div class="section-inner">
     <div class="section-label reveal">AI Publications & Peer Reviews</div>
     <h2 class="section-title reveal">Research contributions</h2>
-    <div class="pub-item reveal">
-      <div class="pub-type">Publication</div>
-      <div class="pub-title"><a href="https://link.springer.com/article/10.1007/s42979-025-04232-6" target="_blank" rel="noopener noreferrer">Leveraging Text Analysis and Machine Learning Models for Suicide Ideation Detection in Social Media Posts</a></div>
-      <div class="pub-authors"><strong>Savio Richard Lobo</strong> &amp; Sowmya Kamath</div>
-      <div class="pub-venue">SN Computer Science</div>
-      <div class="pub-date">Jul 28, 2025</div>
-    </div>
-    <div class="pub-item reveal">
-      <div class="pub-type">Peer Reviewer</div>
-      <div class="pub-title">Health Informatics Journal</div>
-    </div>
-    <div class="pub-item reveal">
-      <div class="pub-type">Peer Reviewer</div>
-      <div class="pub-title">Americas Conference on Information Systems</div>
+    <div class="pub-grid">
+      <div class="pub-item reveal">
+        <div class="pub-type">Publication</div>
+        <div class="pub-title"><a href="https://link.springer.com/article/10.1007/s42979-025-04232-6" target="_blank" rel="noopener noreferrer">Leveraging Text Analysis and Machine Learning Models for Suicide Ideation Detection in Social Media Posts</a></div>
+        <div class="pub-authors"><strong>Savio Richard Lobo</strong> &amp; Sowmya Kamath</div>
+        <div class="pub-venue">SN Computer Science</div>
+        <div class="pub-date">Jul 28, 2025</div>
+      </div>
+      <div class="pub-item reveal">
+        <div class="pub-type">Peer Reviewer</div>
+        <div class="pub-title">Health Informatics Journal</div>
+      </div>
+      <div class="pub-item reveal">
+        <div class="pub-type">Peer Reviewer</div>
+        <div class="pub-title">Americas Conference on Information Systems</div>
+      </div>
     </div>
   </div>
 </section>
