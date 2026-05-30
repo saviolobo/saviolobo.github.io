@@ -30,9 +30,9 @@
   --text-primary:#e8e8e8;
   --text-secondary:#888888;
   --text-muted:#555555;
-  --accent:#c8ff00;
-  --accent-dim:rgba(200,255,0,0.1);
-  --accent-glow:rgba(200,255,0,0.15);
+  --accent:#f59e0b;
+  --accent-dim:rgba(245,158,11,0.1);
+  --accent-glow:rgba(245,158,11,0.15);
   --border:#1e1e1e;
   --border-light:#2a2a2a;
   --font-sans:'Space Grotesk',system-ui,sans-serif;
@@ -104,11 +104,9 @@ section{padding:4rem 2rem}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
 .hero-bio{font-size:.92rem;color:var(--text-muted);line-height:1.7;max-width:520px;margin-bottom:1.8rem}
 .hero-links{display:flex;gap:1rem;align-items:center}
-.hero-links a{display:flex;align-items:center;justify-content:center;width:42px;height:42px;border:1px solid var(--border-light);border-radius:50%;color:var(--text-secondary);transition:all .3s;position:relative}
+.hero-links a{display:flex;align-items:center;justify-content:center;width:42px;height:42px;border:1px solid var(--border-light);border-radius:50%;color:var(--text-secondary);transition:all .3s}
 .hero-links a:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-dim)}
 .hero-links a svg{width:18px;height:18px}
-.hero-links a::after{content:attr(data-tooltip);position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);background:var(--bg-card);border:1px solid var(--border-light);color:var(--text-secondary);font-size:.72rem;white-space:nowrap;padding:.3rem .7rem;border-radius:6px;opacity:0;pointer-events:none;transition:opacity .2s}
-.hero-links a:hover::after{opacity:1}
 
 /* About */
 .about-text{font-size:1.05rem;line-height:1.85;color:var(--text-secondary);max-width:700px}
@@ -146,8 +144,7 @@ section{padding:4rem 2rem}
 .about-text strong{color:var(--text-primary);font-weight:600}
 .connect-link{display:inline-block;font-size:.9rem;font-weight:500;color:var(--accent);border:1px solid var(--accent);border-radius:100px;padding:.45rem 1.2rem;transition:all .3s;text-decoration:none}
 .connect-link:hover{background:var(--accent-dim)}
-.skills-grid{display:flex;flex-wrap:wrap;gap:.5rem}
-.skill-tag{font-family:var(--font-mono);font-size:.75rem;padding:.35rem .8rem;border:1px solid var(--border-light);border-radius:100px;color:var(--text-secondary);letter-spacing:.03em}
+#skills .project-tag{border-color:var(--accent);color:var(--accent);background:var(--accent-dim)}
 
 /* Project card */
 .projects-grid{display:flex;flex-direction:column;gap:2rem;margin-top:.5rem}
@@ -249,7 +246,7 @@ a,button{-webkit-tap-highlight-color:transparent}
   <div class="nav-links">
     <a href="#about">About</a>
     <a href="#projects">Projects</a>
-    <a href="#publications">Publications</a>
+    <a href="#publications">Publications & Reviews</a>
     <a href="#writing">Writing</a>
     <a href="#contact">Contact</a>
   </div>
@@ -314,12 +311,12 @@ a,button{-webkit-tap-highlight-color:transparent}
         </div>
         <p class="project-desc">Production-grade multi-agent pipeline for automated intent classification on the Banking77 benchmark (13,083 queries, 77 intents). Achieves 95.8% agreement rate, outperforming JP Morgan's MAFA system (AAAI 2026) at 86%.</p>
         <div class="project-tags">
-          <span class="project-tag">Python</span>
+          <span class="project-tag">AI Agents</span>
           <span class="project-tag">LangGraph</span>
           <span class="project-tag">FastMCP</span>
+          <span class="project-tag">LLMs</span>
           <span class="project-tag">Redis</span>
-          <span class="project-tag">Groq</span>
-          <span class="project-tag">Cerebras</span>
+          <span class="project-tag">Python</span>
         </div>
       </div>
     </div>
@@ -330,13 +327,12 @@ a,button{-webkit-tap-highlight-color:transparent}
           <a href="https://github.com/saviolobo/semantic-llm-cache" target="_blank" rel="noopener noreferrer">Semantic LLM Cache</a>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
         </div>
-        <p class="project-desc">Production semantic caching layer for LLM apps using Redis Vector Search and Sentence-Transformers. Reduces API costs by ~50%.</p>
+        <p class="project-desc">Production semantic caching layer for LLM apps using Redis Vector Search and Sentence-Transformers. Achieving 40–60% cost savings.</p>
         <div class="project-tags">
-          <span class="project-tag">Python</span>
-          <span class="project-tag">FastAPI</span>
+          <span class="project-tag">LLMs</span>
           <span class="project-tag">Redis</span>
-          <span class="project-tag">Groq API</span>
-          <span class="project-tag">Streamlit</span>
+          <span class="project-tag">FastAPI</span>
+          <span class="project-tag">Python</span>
         </div>
       </div>
     </div>
@@ -348,16 +344,16 @@ a,button{-webkit-tap-highlight-color:transparent}
 <section id="skills">
   <div class="section-inner">
     <div class="section-label reveal">Skills</div>
-    <div class="skills-grid reveal">
-      <span class="skill-tag">AI Agents</span>
-      <span class="skill-tag">RAG</span>
-      <span class="skill-tag">LLMs</span>
-      <span class="skill-tag">LangGraph</span>
-      <span class="skill-tag">LangChain</span>
-      <span class="skill-tag">Langfuse</span>
-      <span class="skill-tag">Claude Code</span>
-      <span class="skill-tag">Azure OpenAI</span>
-      <span class="skill-tag">Python</span>
+    <div class="project-tags reveal">
+      <span class="project-tag">AI Agents</span>
+      <span class="project-tag">RAG</span>
+      <span class="project-tag">LLMs</span>
+      <span class="project-tag">LangGraph</span>
+      <span class="project-tag">LangChain</span>
+      <span class="project-tag">Langfuse</span>
+      <span class="project-tag">Claude Code</span>
+      <span class="project-tag">Azure OpenAI</span>
+      <span class="project-tag">Python</span>
     </div>
   </div>
 </section>
@@ -365,7 +361,7 @@ a,button{-webkit-tap-highlight-color:transparent}
 <!-- Publications & Review -->
 <section id="publications">
   <div class="section-inner">
-    <div class="section-label reveal">Publications & Review</div>
+    <div class="section-label reveal">AI Publications & Peer Reviews</div>
     <h2 class="section-title reveal">Research contributions</h2>
     <div class="pub-item reveal">
       <div class="pub-type">Publication</div>
@@ -376,7 +372,11 @@ a,button{-webkit-tap-highlight-color:transparent}
     </div>
     <div class="pub-item reveal">
       <div class="pub-type">Peer Reviewer</div>
-      <div class="pub-title">Health Informatics Journal &middot; AMCIS Conference</div>
+      <div class="pub-title">Health Informatics Journal</div>
+    </div>
+    <div class="pub-item reveal">
+      <div class="pub-type">Peer Reviewer</div>
+      <div class="pub-title">Americas Conference on Information Systems</div>
     </div>
   </div>
 </section>
